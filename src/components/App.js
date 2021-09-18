@@ -49,8 +49,10 @@ class App extends Component {
     if(tokenFarmData) {
       const tokenFarm = new web3.eth.Contract(TokenFarm.abi, tokenFarmData.address)
       this.setState({ tokenFarm })
+      console.log(tokenFarm)
       let stakingBalance = await tokenFarm.methods.stakingBalance(this.state.account).call()
       this.setState({ stakingBalance: stakingBalance.toString() })
+      console.log(stakingBalance)
     } else {
       window.alert('TokenFarm contract not deployed to detected network.')
     }
@@ -117,7 +119,7 @@ class App extends Component {
 
     return (
       <div>
-        <Navbar account={this.state.account} />
+        <Navbar account={this.state.account} />          
         <div className="container-fluid mt-5">
           <div className="row">
             <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '600px' }}>
@@ -130,6 +132,7 @@ class App extends Component {
                 </a>
 
                 {content}
+
 
               </div>
             </main>

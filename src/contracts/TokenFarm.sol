@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 
-import "./DappToken.sol";
-import "./DaiToken.sol";
+import "./DappToken.sol"; 
+import "./DaiToken.sol"; 
 
 contract TokenFarm {
     string public name = "Dapp Token Farm";
@@ -40,7 +40,7 @@ contract TokenFarm {
         hasStaked[msg.sender] = true;
     }
 
-    // Unstaking Tokens (Withdraw)
+    // Unstaking Tokens ( Withdraw)
     function unstakeTokens() public {
         // Fetch staking balance
         uint balance = stakingBalance[msg.sender];
